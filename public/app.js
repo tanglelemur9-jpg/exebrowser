@@ -820,7 +820,15 @@
       if (!stripped) continue;
       const safe = sanitizeRelPath(stripped);
       if (!safe) continue;
-      const bytes = new Uint8Array(await f.arrayBuffer());
+
+      let bytes;
+      try {
+        bytes = new Uint8Array(await f.arrayBuffer());
+      } catch (err) {
+        log(`Could not read ${f.name}: ${err?.name || err}`, "error");
+        continue;
+      }
+
       if (/\.exe$/i.test(safe)) warnIfNotPe(safe, bytes);
       state.stagedFiles.push({ path: safe, bytes });
     }
