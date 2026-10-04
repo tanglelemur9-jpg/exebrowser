@@ -1642,7 +1642,10 @@
       const safe = sanitizeRelPath(e.path);
       if (!safe) continue;
       const bytes = await readZipEntry(zip, e);
-      if (/\.exe$/i.test(safe)) warnIfNotPe(safe, bytes);
+      if (/\.exe$/i.test(safe)) {
+        console.log("ZIP EXE DEBUG:", safe, bytes.length, bytes[0], bytes[1]);
+        warnIfNotPe(safe, bytes);
+      }
       state.stagedFiles.push({ path: safe, bytes });
     }
     log(`Fetched hosted app: ${state.stagedFiles.length} files staged from ${url}.`);
