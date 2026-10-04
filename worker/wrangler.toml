@@ -8,4 +8,4 @@ compatibility_date = "2026-05-01"
 
 [vars]
 UPSTREAM_BASE = "https://www.boxedwine.org/boxedwine/"
-ALLOWED_ORIGINS = "https://exebrowser.com,https://www.exebrowser.com,http://localhost:8765"
+ALLOWED_ORIGINS = "https://exebrowser-6rq.pages.dev,http://localhost:8765"

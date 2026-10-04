@@ -7,7 +7,7 @@
 // through our Worker keeps the URL stable, lets Cloudflare cache it, and
 // matches the same-origin model used for /api/fs/.
 
-const WORKER_BASE = "https://boxedwine-assets.andrew-nakas.workers.dev/overlay/";
+const WORKER_BASE = "https://boxedwine-assets.tanglelemur.workers.dev/overlay/";
 
 export async function onRequest(context) {
   const { request, params } = context;

@@ -10,7 +10,7 @@
 // _redirects rewrites to external hosts are unreliable on Pages; Functions
 // always work.
 
-const WORKER_BASE = "https://boxedwine-assets.andrew-nakas.workers.dev/fs/";
+const WORKER_BASE = "https://boxedwine-assets.tanglelemur.workers.dev/fs/";
 
 export async function onRequest(context) {
   const { request, params } = context;
