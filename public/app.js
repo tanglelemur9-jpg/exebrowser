@@ -850,8 +850,11 @@
     for (const e of entries) {
       const safe = sanitizeRelPath(e.path);
       if (!safe) continue;
-      const bytes = await readZipEntry(zip, e);
-      if (/\.exe$/i.test(safe)) warnIfNotPe(safe, bytes);
+    const bytes = await readZipEntry(zip, e);
+    if (/\.exe$/i.test(safe)) {
+      console.log("ZIP EXE:", safe, "size:", bytes.length, "first bytes:", bytes[0], bytes[1]);
+      warnIfNotPe(safe, bytes);
+  }
       state.stagedFiles.push({ path: safe, bytes });
     }
     log(`Loaded zip: ${state.stagedFiles.length} files extracted.`);
