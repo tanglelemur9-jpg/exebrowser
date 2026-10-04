@@ -1537,7 +1537,17 @@
   });
   els.pickZipBtn.addEventListener("click", (e) => {
     e.stopPropagation();
-    els.zipInput.click();
+
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = ".zip,application/zip";
+
+    input.addEventListener("change", (event) => {
+      handleZip(event.target.files[0]);
+    });
+
+    document.body.appendChild(input);
+    input.click();
   });
   els.exeInput.addEventListener("change", (e) => handleSingleExe(e.target.files[0]));
   els.folderInput.addEventListener("change", (e) => handleFolder(e.target.files));
