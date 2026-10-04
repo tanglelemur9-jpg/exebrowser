@@ -852,7 +852,7 @@
       if (!safe) continue;
     const bytes = await readZipEntry(zip, e);
     if (/\.exe$/i.test(safe)) {
-      console.log("ZIP EXE:", safe, "size:", bytes.length, "first bytes:", bytes[0], bytes[1]);
+      console.log("ZIP EXE DEBUG:", safe, "size:", bytes.length, "first bytes:", bytes[0], bytes[1]);
       warnIfNotPe(safe, bytes);
   }
       state.stagedFiles.push({ path: safe, bytes });
